@@ -16,6 +16,12 @@ public:
 				cout << " + ";
 			cout << w[i] << " * x" << i;
 		}
+		if (b>0.0000001f){
+			cout << " + " << b;
+		}
+		if (b < -0.0000001f){
+			cout << " + (" << b << ")";
+		}
 		cout << endl;
 	}
 protected:
@@ -27,7 +33,7 @@ class ori_p :public perceptron{
 public:
 	void compute_data(vector<vector<double>> &t1, vector<vector<double>> &t2);
 private:
-	bool change(vector<double> &data, int flag,double nita, vector<double> &_w, double _b);
+	bool change(vector<double> &data, int flag,double nita, vector<double> &_w, double &_b);
 };
 
 
