@@ -2,13 +2,7 @@
 #include "perceptron.h"
 #include "my_math.h"
 
-template<class T>
-void vector_show(const vector<T> &a){
-	for (int i = 0; i < a.size(); ++i){
-		cout << a[i] << " ";
-	}
-	cout << endl;
-}
+
 
 perceptron::perceptron()
 {

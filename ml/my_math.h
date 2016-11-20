@@ -1,4 +1,6 @@
+#pragma once
 #include <vector>
+#include <iostream>
 using namespace std;
 
 template<class T>
@@ -35,4 +37,20 @@ T operator*(const vector<T> &left, const vector<T> &right){
 		out+=left[i] * right[i];
 	}
 	return out;
+}
+
+template<class T>
+void v_show(const vector<T> &a){
+	for (int i = 0; i < a.size(); ++i){
+		cout << a[i] << " ";
+	}
+	cout << endl;
+}
+
+template<class T>
+void vv_show(const vector<vector<T>> &a){
+	for (auto i : a){
+		v_show(i);
+	}
+	cout << endl;
 }

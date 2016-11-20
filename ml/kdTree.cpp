@@ -94,21 +94,34 @@ double kdTree::len(const vector<double> &left, const vector<double> &right,int k
 void kdTree::my_find(tree* root, const vector<double> &f, int k, multiset<vector<double>> &out, double &now_max, int id){
 	int next_id = (id + 1) % f.size();
 	double r_len = len(root->nums, f);
+
+	v_show(root->nums);
+	cout << r_len << endl;
+
 	bool left, right;
 	left = right = true;
 	if (now_max < 0){
-		if (root->nums[id] <= f[id] && root->left){
+		if (f[id]<=root->nums[id] && root->left){
 			my_find(root->left, f, k, out, now_max, next_id);
 			left = false;
 		}
-		else if (root->nums[id] > f[id] && root->right){
+		else if (f[id]>root->nums[id]  && root->right){
 			my_find(root->right, f, k, out, now_max, next_id);
 			right = false;
 		}
 		else{
-			now_max = r_len;
-			out.insert(root->nums);
-			return;
+			left = right = false;
+			if (root->left){
+				my_find(root->left, f, k, out, now_max, next_id);
+			}
+			else if (root->right){
+				my_find(root->right, f, k, out, now_max, next_id);
+			}
+			else{
+				now_max = r_len;
+				out.insert(root->nums);
+				return;
+			}
 		}
 	}
 	if (out.size() < k){
@@ -116,24 +129,26 @@ void kdTree::my_find(tree* root, const vector<double> &f, int k, multiset<vector
 		now_max = max(now_max, r_len);
 	}
 	else if (r_len < now_max){
+		double tmp = now_max;
 		now_max = -1;
 		out.insert(root->nums);
 		for (multiset<vector<double>>::iterator it = out.begin();
-			it != out.end(); ++it){
+			it != out.end();){
 			double tmplen = len(*it, f);
-			if (tmplen>r_len){
+			if (tmplen==tmp){
 				it = out.erase(it);
 			}
 			else{
 				now_max = max(now_max, tmplen);
+				++it;
 			}
 		}
 	}
 
-	if (left && root->left && abs(root->left->nums[next_id] - f[next_id]) < now_max){
+	if (left && root->left && abs((double)root->left->nums[next_id] - f[next_id]) < now_max){
 		my_find(root->left, f, k, out, now_max, next_id);
 	}
-	if (right && root->right && abs(root->right->nums[next_id] - f[next_id]) < now_max){
+	if (right && root->right && abs((double)root->right->nums[next_id] - f[next_id]) < now_max){
 		my_find(root->right, f, k, out, now_max, next_id);
 	}
 }

@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <math.h>
 #include <unordered_set>
+#include "my_math.h"
 using namespace std;
 
 class tree{
