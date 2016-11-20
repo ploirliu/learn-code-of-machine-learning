@@ -27,6 +27,12 @@
     <ClInclude Include="perceptron.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="kdTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="knn_force.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -36,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="perceptron.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kdTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
