@@ -11,6 +11,7 @@
 #include <tchar.h>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include "my_math.h"
 using namespace std;
 
