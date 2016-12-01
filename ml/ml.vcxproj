@@ -79,6 +79,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bayes.h" />
     <ClInclude Include="my_math.h" />
     <ClInclude Include="kdTree.h" />
     <ClInclude Include="knn_force.h" />

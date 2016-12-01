@@ -14,6 +14,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="my_rand_data.h" />
+    <ClInclude Include="bayes.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

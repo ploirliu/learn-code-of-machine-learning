@@ -9,6 +9,10 @@
 
 #include <stdio.h>
 #include <tchar.h>
+#include <vector>
+#include <string>
+#include "my_math.h"
+using namespace std;
 
 
 
